@@ -256,6 +256,7 @@ MyApp = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LibraryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_quotes__ = __webpack_require__(272);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -267,26 +268,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * Generated class for the LibraryPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 var LibraryPage = (function () {
     function LibraryPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    LibraryPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LibraryPage');
+    LibraryPage.prototype.ngOnInit = function () {
+        this.quoteCollection = __WEBPACK_IMPORTED_MODULE_2__data_quotes__["a" /* default */];
     };
     return LibraryPage;
 }());
 LibraryPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-library',template:/*ion-inline-start:"/Users/user/projects/github/ionic/Favorites-Quote/src/pages/library/library.html"*/'<!--\n  Generated template for the LibraryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>library</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/user/projects/github/ionic/Favorites-Quote/src/pages/library/library.html"*/,
+        selector: 'page-library',template:/*ion-inline-start:"/Users/user/projects/github/ionic/Favorites-Quote/src/pages/library/library.html"*/'<!--\n  Generated template for the LibraryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Quotes Library</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <h3 text-center> Select Your Favorite Quotes</h3>\n  <ion-list>\n    <button ion-item *ngFor="let quoteGroup of quoteCollection">\n      <ion-icon [name]="quoteGroup.icon" item-left></ion-icon>\n      <h2>{{quoteGroup.category | uppercase}}</h2>\n      <h2>{{quoteGroup.quotes.length}} Quotes</h2>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/user/projects/github/ionic/Favorites-Quote/src/pages/library/library.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], LibraryPage);
@@ -465,6 +461,85 @@ TabsPage = __decorate([
 ], TabsPage);
 
 //# sourceMappingURL=tabs.js.map
+
+/***/ }),
+
+/***/ 272:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ([
+    {
+        category: 'inspirational',
+        quotes: [
+            {
+                id: '1',
+                person: 'Theodore Roosevelt',
+                text: 'Believe you can and you\'re halfway there'
+            },
+            {
+                id: '2',
+                person: 'Norman Vincent Peale',
+                text: 'Change your thoughts and you change your world.'
+            },
+            {
+                id: '3',
+                person: 'Robert H. Schuller',
+                text: 'What great thing would you attempt if you knew you could not fail?'
+            }
+        ],
+        icon: 'brush'
+    },
+    {
+        category: 'ability',
+        quotes: [
+            {
+                id: '4',
+                person: 'John Wooden',
+                text: 'Ability may get you to the top, but it takes character to keep you there.'
+            },
+            {
+                id: '5',
+                person: 'Robert Frost',
+                text: 'Education is the ability to listen to almost anything without losing your temper.'
+            }
+        ],
+        icon: 'bicycle'
+    },
+    {
+        category: 'enthusiasm',
+        quotes: [
+            {
+                id: '6',
+                person: 'Benjamin Disraeli',
+                text: 'Every product of genius must be the product of enthusiasm.'
+            },
+            {
+                id: '7',
+                person: 'Norman Vincent Peale',
+                text: 'Enthusiasm releases the drive to carry you over obstacles and adds significance to all you do.'
+            }
+        ],
+        icon: 'battery-charging'
+    },
+    {
+        category: 'motivational',
+        quotes: [
+            {
+                id: '8',
+                person: 'Jim Rohn',
+                text: 'Either you run the day or the day runs you.'
+            },
+            {
+                id: '9',
+                person: 'Donna Brazile',
+                text: 'I was motivated to be different in part because I was different.'
+            }
+        ],
+        icon: 'body'
+    }
+]);
+//# sourceMappingURL=quotes.js.map
 
 /***/ })
 
