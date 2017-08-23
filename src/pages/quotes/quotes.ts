@@ -45,7 +45,7 @@ export class QuotesPage implements OnInit {
         },
         {
           text : 'no, I changed my mind!',
-          handler : () => {
+          handler : () => {   
             console.log('Cancelled');
           }
         }
@@ -53,5 +53,14 @@ export class QuotesPage implements OnInit {
     });
 
     alert.present();
+  }
+
+
+  onRemoveFromFavorites (quote : Quote){
+    this.quoteService.removeQuoteFromFavorites(quote);
+  }
+
+  isFavorite(quote : Quote){
+    return this.quoteService.isQuoteFavorite(quote);
   }
 }

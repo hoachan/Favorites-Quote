@@ -31,7 +31,23 @@ export class FavoritesPage {
   }
 
   onViewQuote(quote : Quote){
-    const modal = this.modalCtrl.create(QuotePage);
+    /**
+     * Delete the unfavorite quote then view current app
+     * 
+     */
+    const modal = this.modalCtrl.create(QuotePage, quote);
     modal.present();
+    modal.onDidDismiss((remove : boolean) => {
+      console.log(remove);
+      if (remove){
+        this.quotesService.removeQuoteFromFavorites(quote);
+        // this.quotes = this.quotesService.getFavoriteQuotes();
+        const position = this.quotes.findIndex( (quoteElo : Quote) => {
+          return quoteElo.id == quote.id;
+        });
+
+        this.quotes.splice(position, 1);
+      }
+    });
   }
 }

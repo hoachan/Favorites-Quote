@@ -15,6 +15,9 @@ import {ViewController, IonicPage,  NavController,  NavParams} from 'ionic-angul
 })
 export class QuotePage {
 
+  person : string;
+  text    : string;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -24,10 +27,12 @@ export class QuotePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuotePage');
+    this.person = this.navParams.get('person');
+    this.text = this.navParams.get('text');
   }
 
-  onClose(){
-    //model view will be closed
-    this.viewCtrl.dismiss();
+  onClose(remove = false){
+    //model view will be closed after passing the remove return favorites.ts (modal object)
+    this.viewCtrl.dismiss(remove);
   }
 }
