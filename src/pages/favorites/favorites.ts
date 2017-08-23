@@ -2,7 +2,7 @@ import { QuotePage } from './../quote/quote';
 import { QuotesService } from './../../services/quotes';
 import { Quote } from './../data/quote.interface';
 import { Component } from '@angular/core';
-import {ModalController, IonicPage,  NavController,  NavParams} from 'ionic-angular';
+import { ModalController, IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -18,7 +18,8 @@ export class FavoritesPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private quotesService : QuotesService,
-    private modalCtrl : ModalController
+    private modalCtrl : ModalController,
+    private menuCtrl : MenuController
     ) {
   }
 
@@ -40,14 +41,22 @@ export class FavoritesPage {
     modal.onDidDismiss((remove : boolean) => {
       console.log(remove);
       if (remove){
-        this.quotesService.removeQuoteFromFavorites(quote);
-        // this.quotes = this.quotesService.getFavoriteQuotes();
-        const position = this.quotes.findIndex( (quoteElo : Quote) => {
-          return quoteElo.id == quote.id;
-        });
-
-        this.quotes.splice(position, 1);
+        this.onRemoveFromFavorites(quote);
       }
     });
+  }
+
+  onRemoveFromFavorites(quote : Quote){
+    this.quotesService.removeQuoteFromFavorites(quote);
+    // this.quotes = this.quotesService.getFavoriteQuotes();
+    const position = this.quotes.findIndex( (quoteElo : Quote) => {
+      return quoteElo.id == quote.id;
+    });
+
+    this.quotes.splice(position, 1);
+  }
+
+  onOpenMenu(){
+    this.menuCtrl.open();
   }
 }
