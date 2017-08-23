@@ -2,7 +2,7 @@ import { QuotePage } from './../quote/quote';
 import { QuotesService } from './../../services/quotes';
 import { Quote } from './../data/quote.interface';
 import { Component } from '@angular/core';
-import { ModalController, IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { ModalController, IonicPage, NavController, NavParams} from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -18,8 +18,7 @@ export class FavoritesPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private quotesService : QuotesService,
-    private modalCtrl : ModalController,
-    private menuCtrl : MenuController
+    private modalCtrl : ModalController
     ) {
   }
 
@@ -54,9 +53,5 @@ export class FavoritesPage {
     });
 
     this.quotes.splice(position, 1);
-  }
-
-  onOpenMenu(){
-    this.menuCtrl.open();
   }
 }
