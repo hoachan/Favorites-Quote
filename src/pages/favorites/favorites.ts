@@ -1,3 +1,4 @@
+import { SettingsService } from './../../services/settings';
 import { QuotePage } from './../quote/quote';
 import { QuotesService } from './../../services/quotes';
 import { Quote } from './../data/quote.interface';
@@ -18,6 +19,7 @@ export class FavoritesPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private quotesService : QuotesService,
+    private settingsService : SettingsService,
     private modalCtrl : ModalController
     ) {
   }
@@ -53,5 +55,9 @@ export class FavoritesPage {
     });
 
     this.quotes.splice(position, 1);
+  }
+
+  getBackground(){
+    return this.settingsService.isAltBackground() ? 'altQuoteBackground' : 'quoteBackground';
   }
 }
